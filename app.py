@@ -1,4 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
@@ -12,6 +14,10 @@ development, not in production.
 @app.route('/')
 def welcome_page():
     return "Welcome to the first page!"
+
+@app.route('/design')
+def design_page():
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
